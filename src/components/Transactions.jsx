@@ -30,7 +30,7 @@ const Transactions = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-40 p-6 space-y-6">
       <h2 className="text-3xl font-bold text-center text-gray-800">Transactions</h2>
 
       {/* Toast Notification */}
@@ -46,7 +46,7 @@ const Transactions = () => {
               name="type"
               value={formData.type}
               onChange={handleInputChange}
-              className="w-full  border-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full border-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
             >
               <option value="income">Income</option>
               <option value="expense">Expense</option>
@@ -60,7 +60,7 @@ const Transactions = () => {
               name="amount"
               value={formData.amount}
               onChange={handleInputChange}
-              className="w-full  border-2 border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full border-2 border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               required
             />
           </div>
@@ -90,6 +90,7 @@ const Transactions = () => {
               <option value="cash">Cash</option>
             </select>
           </div>
+
           <div>
             <label className="block text-gray-700">Date</label>
             <input
@@ -104,7 +105,7 @@ const Transactions = () => {
 
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300"
+          className="w-full sm:w-auto py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300"
         >
           Add Transaction
         </button>
@@ -121,9 +122,7 @@ const Transactions = () => {
             >
               <div className="flex items-center space-x-4">
                 <span
-                  className={`px-2 py-1 rounded ${
-                    transaction.type === 'income' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
-                  }`}
+                  className={`px-2 py-1 rounded ${transaction.type === 'income' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}
                 >
                   {transaction.type}
                 </span>
@@ -146,8 +145,9 @@ const Transactions = () => {
           ))}
         </ul>
       </div>
-       {/* Transaction Summary (Chart) */}
-       <TransactionSummary transactions={transactions} />
+
+      {/* Transaction Summary (Chart) */}
+      <TransactionSummary transactions={transactions} />
     </div>
   );
 };

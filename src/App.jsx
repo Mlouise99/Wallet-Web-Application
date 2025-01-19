@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Transactions from './components/Transactions';
 import Budget from './components/Budget';
@@ -8,15 +8,50 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+  // Define the state for the mobile menu
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <WalletProvider>
       <Router>
         <div className="min-h-screen bg-gray-100 flex flex-col">
           {/* Navbar */}
           <nav className="bg-blue-700 text-white shadow-md py-4">
-            <div className="container mx-auto flex justify-between items-center">
+            <div className="container mx-auto px-6 sm:px-20 flex justify-between items-center">
               <Link to="/" className="text-2xl font-bold text-white">WalletApp</Link>
-              <ul className="flex space-x-8">
+
+              {/* Hamburger icon for small screens */}
+              <div className="lg:hidden">
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)} // Toggle the menu state
+                  className="text-white focus:outline-none"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Desktop menu */}
+              <ul className="hidden lg:flex space-x-8">
+                <li>
+                  <Link to="/" className="text-lg hover:text-yellow-400 transition">Home</Link>
+                </li>
+                <li>
+                  <Link to="/transactions" className="text-lg hover:text-yellow-400 transition">Transactions</Link>
+                </li>
+                <li>
+                  <Link to="/budget" className="text-lg hover:text-yellow-400 transition">Budget</Link>
+                </li>
+                <li>
+                  <Link to="/report" className="text-lg hover:text-yellow-400 transition">Reports</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Mobile menu */}
+            <div className={`lg:hidden ${menuOpen ? 'block' : 'hidden'}`}>
+              <ul className="space-y-4 px-6 py-4">
                 <li>
                   <Link to="/" className="text-lg hover:text-yellow-400 transition">Home</Link>
                 </li>
