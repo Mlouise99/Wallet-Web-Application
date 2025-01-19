@@ -41,12 +41,12 @@ const Transactions = () => {
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg space-y-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
-            <label className="block text-gray-700">Type</label>
+            <label className="block text-gray-700 mb-3">Type</label>
             <select
               name="type"
               value={formData.type}
               onChange={handleInputChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full  border-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
             >
               <option value="income">Income</option>
               <option value="expense">Expense</option>
@@ -54,13 +54,13 @@ const Transactions = () => {
           </div>
 
           <div>
-            <label className="block text-gray-700">Amount</label>
+            <label className="block text-gray-700 mb-3">Amount</label>
             <input
               type="number"
               name="amount"
               value={formData.amount}
               onChange={handleInputChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full  border-2 border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               required
             />
           </div>
@@ -72,7 +72,7 @@ const Transactions = () => {
               name="category"
               value={formData.category}
               onChange={handleInputChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full border-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               required
             />
           </div>
@@ -83,7 +83,7 @@ const Transactions = () => {
               name="account"
               value={formData.account}
               onChange={handleInputChange}
-              className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full border-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
             >
               <option value="bank">Bank Account</option>
               <option value="mobile">Mobile Money</option>
@@ -97,7 +97,7 @@ const Transactions = () => {
               name="date"
               value={formData.date}
               onChange={handleInputChange}
-              className="w-full border rounded p-2"
+              className="w-full border-2 rounded p-2"
             />
           </div>
         </div>

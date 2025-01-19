@@ -25,7 +25,7 @@ const Budget = () => {
             type="number"
             value={newBudget}
             onChange={handleBudgetChange}
-            className="w-full p-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full p-2 border-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
           <button
             onClick={updateBudget}
